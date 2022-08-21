@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
+use App\Models\Post;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     /**
@@ -21,8 +24,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(User $user)
     {
-        return view('home');
+        $user = Auth::user()
+        ->username;
+
+        $posts = Post::with('category', 'post_author')->get();
+
+        return view('cms.index', compact('user', 'posts'));
     }
 }
