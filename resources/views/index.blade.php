@@ -7,7 +7,17 @@ Personal Blog
 @section('content')
 <section id="headline">
     <div class="container mb-3">
-
+        <div class="row justify-content-end mt-4">
+            <div class="col-md-6">
+                <form action="{{ route('guest.index') }}">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="search..." name="search"
+                            value="{{ request('search') }}">
+                        <button class="btn btn-dark" type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
         @if ($posts->count())
         <div class="row mt-3 row-headline">
             <div class="col-md-5">
@@ -37,13 +47,11 @@ Personal Blog
         </div>
     </div>
 
-    @else
-    <p class="text-center fs-4">No post found</p>
-    @endif
 </section>
 
 <section id="card">
     <div class="container mb-3">
+
         <div class="row row-card-index">
             @foreach ($posts->skip(1) as $post)
             <div class="col-lg-4 col-md-4 col-6 mt-4">
@@ -77,4 +85,7 @@ Personal Blog
         </div>
     </div>
 </section>
+@else
+<p class="text-center fs-4">No post found</p>
+@endif
 @endsection

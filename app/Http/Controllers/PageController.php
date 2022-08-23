@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
-use App\Models\Tag; 
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,12 @@ class PageController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('category')
+        $posts = Post::query()
+                ->when(request('search'), function ($query) {
+                    $query->where('title', 'like', '%' .request('search') . '%')
+                        ->orWhere('content', 'like', '%' .request('search') . '%');
+                })
+                ->with('category')
                 ->latest()
                 ->get();
 

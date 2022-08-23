@@ -14,7 +14,6 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
     <!-- End Main CSS -->
-
     <title>@yield('title')</title>
 </head>
 

@@ -53,24 +53,19 @@ Post - Edit
                 <trix-editor input="content">{!! old('content') ?? $post->content !!}</trix-editor>
 
             </div>
+
             <div class="mx-3 my-3 fw-bold">
                 <label for="tag" class="form-label fw-bold">Tag</label>
 
                 <select class="form-control fs-3" multiple="multiple" data-placeholder="Select a Tag"
                     style="width: 100%" id="tag" name="tags[]">
-
                     @foreach ($tags as $tag)
-                    <option value="{{ $tag->id }}" @if (in_array($tag->id, $post_tagIDS))
-                        selected
-                        @endif>{{ $tag->title }}</option>
+                    <option value="{{ $tag->id }}">{{ $tag->title }}</option>
                     @endforeach
-
-                    @error('tags')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
                 </select>
-
-
+                @error('tags')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
             <div class="mx-3 my-3 fw-bold">
                 <label for="images" class="form-label">images</label>
@@ -91,9 +86,10 @@ Post - Edit
             </div>
 
 
-
             <button type="submit" class="btn btn-primary mx-3 mt-3">Submit</button>
             </form>
+
+
         </div>
     </div>
     </div>

@@ -17,6 +17,7 @@ class Post extends Model
         'author',
         'image'
     ];
+
     public function category()
     {
         return $this->belongsTo(Category::class);
