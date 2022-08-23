@@ -20,6 +20,7 @@ use App\Http\Controllers\PageController;
 */
 
 Route::get('/dashboard', [HomeController::class, 'index'])->name('index');
+Route::get('/admin', [HomeController::class, 'admin'])->name('admin')->middleware('checkRole:admin');
 Route::resources([
     'category' => CategoryController::class,
     'post' => PostController::class,
@@ -32,10 +33,6 @@ Route::get('categories', [PageController::class,'categories'])->name('guest.cate
 Route::get('categories/{category}', [PageController::class,'category'])->name('guest.category');
 Route::get('/tags/{tag}', [PageController::class, 'tag'])->name('guest.tag');
 Route::get('authors/{user}', [PageController::class,'author'])->name('guest.author');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 

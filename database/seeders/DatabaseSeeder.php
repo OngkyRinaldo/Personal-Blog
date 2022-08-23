@@ -19,9 +19,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(5)->create();
-        // Tag::factory(10)->create();
-        // Post::factory(20)->create();
+        User::factory(5)->create();
+        Tag::factory(10)->create();
+        Post::factory(20)->create();
 
         // Category::create([
         //     'title' => 'Sports',
