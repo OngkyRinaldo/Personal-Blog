@@ -14,7 +14,7 @@ Admin - Dashboard
                 <div class="col">
                     <div class="text-center my-3">
 
-                        <h1>Welcome {{ $user }}</h1>
+                        <h1>Welcome Admin - {{ $user }}</h1>
                     </div>
                     <h2>All posts</h2>
                     <div class="table-responsive">
