@@ -8,6 +8,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
@@ -21,6 +22,13 @@ class PostController extends Controller
     {
         $posts = Post::with('category', 'post_author')->get();
 
+    //     $posts = Post::query()
+    //     ->where('category_id', $category->id)
+    //    ->with('category')
+    //    ->latest()
+    //    ->get();
+
+        // $posts = Post::with('user')->where('user_id', Auth::user()->id)->firstOrFail();
 
         return view('cms.pages.post.index', compact('posts'));
     }

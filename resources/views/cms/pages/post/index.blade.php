@@ -22,19 +22,17 @@ Post
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
-                    <th scope="col">No.</th>
                     <th scope="col">Title</th>
                     <th scope="col">Category</th>
                     <th scope="col">Author</th>
                     <th scope="col">Time</th>
                     <th scope="col">Action</th>
-
                 </tr>
             </thead>
             <tbody>
                 @foreach ($posts as $post)
+                @if ($post->post_author->id == Auth::user()->id)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
                     <td>{{Str::limit($post->title, 46) }}</td>
                     <td>{{ $post->category->title }}</td>
                     <td>{{ $post->post_author->username }}</td>
@@ -52,6 +50,7 @@ Post
                         </form>
                     </td>
                 </tr>
+                @endif
                 @endforeach
 
             </tbody>
