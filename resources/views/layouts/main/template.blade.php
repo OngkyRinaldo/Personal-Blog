@@ -19,11 +19,11 @@
 
 <body>
 
-    <head>
+    <header>
         <!-- navbar -->
         <x-main.navbar />
         <!-- End navbar -->
-    </head>
+    </header>
     <main>
         @yield('content')
     </main>
