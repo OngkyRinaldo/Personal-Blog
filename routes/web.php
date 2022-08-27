@@ -27,12 +27,18 @@ Route::resources([
     'tag' => TagController::class,
 ]);
 
-Route::get('', [PageController::class,'index'])->name('guest.index');
-Route::get('posts/{post}', [PageController::class,'post'])->name('guest.post');
-Route::get('categories', [PageController::class,'categories'])->name('guest.categories');
-Route::get('categories/{category}', [PageController::class,'category'])->name('guest.category');
-Route::get('/tags/{tag}', [PageController::class, 'tag'])->name('guest.tag');
-Route::get('authors/{user}', [PageController::class,'author'])->name('guest.author');
+
+
+Route::controller(PageController::class)->group(function () {
+    Route::get('', 'index')->name('guest.index');
+    Route::get('posts/{post}', 'post')->name('guest.post');
+    Route::get('categories', 'categories')->name('guest.categories');
+    Route::get('categories/{category}', 'category')->name('guest.category');
+    Route::get('tags/{tag}', 'tag')->name('guest.tag');
+    Route::get('authors/{user}', 'author')->name('guest.author');
+});
+
+
 
 Auth::routes();
 
