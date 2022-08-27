@@ -27,8 +27,6 @@ Route::resources([
     'tag' => TagController::class,
 ]);
 
-
-
 Route::controller(PageController::class)->group(function () {
     Route::get('', 'index')->name('guest.index');
     Route::get('posts/{post}', 'post')->name('guest.post');
@@ -37,8 +35,6 @@ Route::controller(PageController::class)->group(function () {
     Route::get('tags/{tag}', 'tag')->name('guest.tag');
     Route::get('authors/{user}', 'author')->name('guest.author');
 });
-
-
 
 Auth::routes();
 
