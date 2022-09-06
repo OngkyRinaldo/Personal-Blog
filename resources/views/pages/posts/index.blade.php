@@ -38,7 +38,7 @@ Post
 
             <p>{{ $post->content }}</p>
             <div class="text-end">
-                <h5> By : <a href="{{ route('guest.author', $post->post_author) }}"" class=" text-decoration-none
+                <h5> By : <a href="{{ route('guest.author', $post->post_author) }}" class=" text-decoration-none
                         text-dark h5-author">{{$post->post_author->username }}</a>
             </div>
 
