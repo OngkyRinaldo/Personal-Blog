@@ -85,7 +85,17 @@ Personal Blog
         </div>
     </div>
 </section>
+
+
+
+@endsection
+
+@section('footer')
+<footer>
+    <x-main.footer />
+</footer>
 @else
-<p class="text-center fs-4">No post found</p>
+<p class="text-center fs-1 my-5">No post found</p>
+
 @endif
 @endsection

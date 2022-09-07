@@ -10,6 +10,7 @@ body {
     font-family: "Poppins", sans-serif;
     font-size: 14px;
     background-color: #d9e8e5;
+    min-height: 100vh;
 }
 
 /* navbar */
@@ -93,10 +94,6 @@ footer {
     padding: 20px;
     background-color: #fff;
     color: #000;
-}
-
-.img-footer {
-    width: 50px;
 }
 /* end Footer */
 

@@ -21,6 +21,7 @@ Categories
 
 <section>
     <div class="container">
+        @if ($categories->count())
         <h1 class="text-center mb-3">All Categories</h1>
         <div class="row mb-3">
             @foreach ($categories as $category)
@@ -42,4 +43,14 @@ Categories
     </div>
 </section>
 {{-- end card --}}
+@endsection
+
+@section('footer')
+<footer>
+    <x-main.footer />
+</footer>
+@else
+<p class="text-center fs-1 my-5">No Categories found</p>
+
+@endif
 @endsection

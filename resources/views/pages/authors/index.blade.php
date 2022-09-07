@@ -63,3 +63,9 @@ Author
 
 
 @endsection
+
+@section('footer')
+<footer class="mt-3">
+    <x-main.footer />
+</footer>
+@endsection
