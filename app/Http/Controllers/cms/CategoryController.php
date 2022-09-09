@@ -51,7 +51,7 @@ class CategoryController extends Controller
 
 
         return redirect()->route('category.index')
-            ->with('success', 'Category has been updated');
+            ->with('success', 'Category has been Created');
     }
 
     /**
