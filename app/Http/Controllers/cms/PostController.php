@@ -34,6 +34,7 @@ class PostController extends Controller
         $tags = Tag::all();
 
         $categories = Category::all();
+
         return view('cms.pages.post.create', compact('tags', 'categories'));
     }
 
@@ -46,11 +47,13 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request -> validate([
+
          'title' => 'required|unique:posts,title|min:38',
          'category' =>'required',
          'content' =>'required',
          'tags' =>'required',
          'image' => 'nullable|image|mimes:jpg,png|max:1024'
+
         ]);
 
         if ($request->hasFile('image')) {
@@ -58,11 +61,13 @@ class PostController extends Controller
             $path = '/images/post/';
 
             $filename = Str::slug($request->title) . '-' . time() . '.' . $image->extension();
+
             $image->move(public_path($path), $filename);
         }
 
 
-        $post = Post::create([
+        $post = Post::create(
+            [
             'title' => $request->title,
             'slug' => Str::slug($request->title),
             'category_id' => $request->category,
@@ -70,15 +75,13 @@ class PostController extends Controller
             'content' => strip_tags($request->content),
             'author' => auth()->id(),
             'image' => $request->hasFile('image') ? $filename : null
-        ]);
+        ]
+        );
 
         $post->tags()->sync($request->tags);
 
-
-
-
         return redirect()->route('post.index')
-            ->with('success', 'post has been updated');
+            ->with('success', 'post has been created');
     }
 
     /**
@@ -101,6 +104,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $tags = Tag::all();
+
         $post_tagIDS = $post
             ->tags
             ->pluck('id')
@@ -121,6 +125,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $request->validate([
+
             'title' => 'required|min:38',
             'category' =>'required',
             'content' => 'required|string',
@@ -148,6 +153,7 @@ class PostController extends Controller
             'author' => auth()->id(),
             'image' => $request->hasFile('image') ? $filename : null
         ]);
+
         $post->tags()
             ->sync($request->tags);
 

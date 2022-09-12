@@ -17,6 +17,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::latest()
+
         ->get();
 
         return view('cms.pages.category.index', compact('categories'));
@@ -41,12 +42,17 @@ class CategoryController extends Controller
     public function store(Request $request, Category $category)
     {
         $request -> validate([
+
            'title' =>'required|unique:categories,title|max:30|min:4'
+
         ]);
 
         $category->create([
+
             'title' => Str::title($request->title),
+
             'slug' => Str::slug($request->title),
+
         ]);
 
 
@@ -86,16 +92,21 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $request -> validate([
+
            'title' =>'required|unique:categories,title|max:15|min:4'
+
         ]);
 
         $category->update([
+
             'title' => Str::title($request->title),
+
             'slug' => Str::slug($request->title),
+
         ]);
 
         return redirect()->route('category.index')
-            ->with('success', 'Data has been updated');
+            ->with('success', 'Category has been updated');
     }
 
     /**
