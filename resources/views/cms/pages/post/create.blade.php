@@ -112,7 +112,7 @@ Post - Create
 
                     </div>
 
-                    <button type="submit" class="btn btn-primary mx-3 mb-5 mt-3">Create a post</button>
+                    <button type="submit" class="btn btn-primary mx-3 mb-5 mt-3">Create new post</button>
 
                 </form>
 
