@@ -19,34 +19,44 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(5)->create();
+        Category::create([
+           'title' => 'Sports',
+           'slug' => 'sports'
+        ]);
+        Category::create([
+            'title' => 'Politics',
+            'slug' => 'politics'
+        ]);
+        Category::create([
+            'title' => 'Web Programming',
+            'slug' => 'web-programming'
+        ]);
+        Category::create([
+            'title' => 'Vacations',
+            'slug' => 'vacations'
+        ]);
+        Category::create([
+            'title' => 'Foods',
+            'slug' => 'foods'
+        ]);
+        Category::create([
+            'title' => 'Football',
+            'slug' => 'football'
+        ]);
+
+
+        User::factory(10)->create();
         Tag::factory(10)->create();
         Post::factory(20)->create();
 
-        // Category::create([
-        //     'title' => 'Sports',
-        //     'slug' => 'sports'
-        // ]);
-        // Category::create([
-        //     'title' => 'Politics',
-        //     'slug' => 'politics'
-        // ]);
-        // Category::create([
-        //     'title' => 'Web Programming',
-        //     'slug' => 'web-programming'
-        // ]);
-        // Category::create([
-        //     'title' => 'Vacations',
-        //     'slug' => 'vacations'
-        // ]);
-        // Category::create([
-        //     'title' => 'Foods',
-        //     'slug' => 'foods'
-        // ]);
-        // Category::create([
-        //     'title' => 'Football',
-        //     'slug' => 'football'
-        // ]);
+        User::factory(1)->create([
+            'name' => 'Test User',
+            'email' => 'admin@example.com',
+            'password'=>bcrypt('password'),
+            'role' => 'admin'
+        ]);
+
+
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

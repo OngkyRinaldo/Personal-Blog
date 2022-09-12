@@ -34,12 +34,22 @@ class HomeController extends Controller
         return view('cms.index', compact('user', 'posts'));
     }
 
-    public function admin(User $user)
+    public function admin()
     {
         $user = Auth::user()
         ->username;
-
+        return view('cms.admin.index', compact('user'));
+    }
+    public function post()
+    {
         $posts = Post::with('category', 'post_author')->get();
-        return view('cms.admin.index', compact('user', 'posts'));
+        return view('cms.admin.post', compact('posts'));
+    }
+
+    public function user()
+    {
+        $users = User::all();
+
+        return view('cms.admin.users', compact('users'));
     }
 }

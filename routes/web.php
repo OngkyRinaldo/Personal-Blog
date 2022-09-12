@@ -19,13 +19,20 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::get('/dashboard', [HomeController::class, 'index'])->name('index');
-Route::get('/admin', [HomeController::class, 'admin'])->name('admin')->middleware('checkRole:admin');
-Route::resources([
-    'category' => CategoryController::class,
-    'post' => PostController::class,
-    'tag' => TagController::class,
-]);
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('index');
+
+    Route::resources([
+        'category' => CategoryController::class,
+        'post' => PostController::class,
+        'tag' => TagController::class,
+    ]);
+    Route::get('/admin', [HomeController::class, 'admin'])->name('admin')->middleware('checkRole:admin');
+    Route::get('/admin/post', [HomeController::class, 'post'])->name('admin.post')->middleware('checkRole:admin');
+    Route::get('/admin/user', [HomeController::class, 'user'])->name('admin.user')->middleware('checkRole:admin');
+});
 
 Route::controller(PageController::class)->group(function () {
     Route::get('', 'index')->name('guest.index');
