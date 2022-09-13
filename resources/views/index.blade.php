@@ -73,7 +73,7 @@ Personal Blog
 
                 <h3 class="headline-caption fs-4 text-muted">{{$posts[0]->descriptions}}</h3>
 
-                <div class="text-end mt-3">
+                <div class="text-end my-3">
 
                     <a href="{{ route('guest.post', $posts[0]) }}">
 
@@ -136,7 +136,7 @@ Personal Blog
 
                         <hr>
 
-                        <a href="{{ route('guest.post', $post) }}" class="btn btn-dark d-grid">Read-more</a>
+                        <a href="{{ route('guest.post', $post) }}" class="btn btn-dark d-block">Read-more</a>
 
                     </div>
 
@@ -157,11 +157,17 @@ Personal Blog
 @endsection
 
 @section('footer')
+
 <footer>
+
     <x-main.footer />
+
 </footer>
+
 @else
+
 <p class="text-center fs-1 my-5">No post found</p>
 
 @endif
+
 @endsection
