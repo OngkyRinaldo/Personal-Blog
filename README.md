@@ -10,6 +10,18 @@
 8. `php artisan migrate:fresh --seed`
 9. `php artisan serve` or use virtual host
 10. Visit `localhost:8000` in your browser
-11. Admin Email/Password: admin@example.com/password
+
+## Login
+
+Email : admin@example.com
+Password : password
+
+## Fitur
+
+-   Login
+-   Halaman Dashboard
+-   Manage Post (CRUD)
+-   Manage Category (CRUD)
+-   Manage Tag (CRUD)
 
 <p style="text-align:center">Thank You so much for your time !!!</p>
