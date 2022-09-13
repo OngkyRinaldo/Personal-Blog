@@ -6,52 +6,45 @@ tag - Create
 
 @section('main')
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div class="content-wrapper mt-5">
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <!-- left column -->
-                    <div class="col-md-10">
-                        <!-- general form elements -->
-                        <div class="card card-primary">
-                            <div class="card-header text-center bg-dark text-light">
-                                <h3 class="card-title">Create new tag</h3>
-                            </div>
-                            <!-- /.card-header -->
-                            <!-- form start -->
-                            <form action="{{ route('tag.store') }}" method="POST">
-                                @csrf
-                                <div class="card-body">
-                                    <div class="mx-3 my-3 fs-3">
-                                        <label for="title">Title</label>
-                                        <input type="text" class="form-control  @error('title') is-invalid @enderror"
-                                            id="title" placeholder="Enter New tag" name="title" required
-                                            value="{{ old('title') }}">
+
+    <div class="container">
+
+        <div class="row mt-5">
+
+            <div class="card-header text-center bg-dark text-light">
+
+                <h3 class="card-title">Create new tag</h3>
+
+            </div>
+
+            <div class="col">
 
 
-                                        @error('title')
-                                        <div class="text-danger">
-                                            {{ $message }}
-                                        </div>
+                <form action="{{ route('tag.store') }}" method="POST">
 
-                                        @enderror
-                                    </div>
-                                </div>
-                                <!-- /.card-body -->
+                    <div class="mx-3 my-3 fs-3 fw-bold">
 
-                                <div class=" card-footer">
-                                    <button type="submit" class="btn btn-primary">Create tag</button>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- /.card -->
+                        <label for="title">Title</label>
+
+                        <input type="text" class="form-control  @error('title') is-invalid @enderror" id="title"
+                            placeholder="Enter New Category" name="title" required value="{{ old('title') }}">
+
+                        @error('title')
+
+                        {{ $message }}
+
+                        @enderror
+
                     </div>
-                </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
+
+                    <button type="submit" class="btn btn-primary mx-3 mb-5 mt-3">Create new tag</button>
+
+                </form>
+
+            </div>
+
+        </div>
     </div>
+
 </main>
 @endsection
