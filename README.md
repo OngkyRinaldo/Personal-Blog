@@ -10,6 +10,6 @@
 8. `php artisan migrate:fresh --seed`
 9. `php artisan serve` or use virtual host
 10. Visit `localhost:8000` in your browser
-11. Admin Email/Password: test@example.com/password
+11. Admin Email/Password: admin@example.com/password
 
 <p style="text-align:center">Thank You so much for your time !!!</p>
