@@ -50,7 +50,8 @@ class DatabaseSeeder extends Seeder
         Post::factory(20)->create();
 
         User::factory(1)->create([
-            'name' => 'Test User',
+            'name' => 'admin',
+            'username' =>'admin',
             'email' => 'admin@example.com',
             'password'=>bcrypt('password'),
             'role' => 'admin'
