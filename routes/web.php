@@ -29,9 +29,15 @@ Route::middleware('auth')->group(function () {
         'post' => PostController::class,
         'tag' => TagController::class,
     ]);
-    Route::get('/admin', [HomeController::class, 'admin'])->name('admin')->middleware('checkRole:admin');
-    Route::get('/admin/post', [HomeController::class, 'post'])->name('admin.post')->middleware('checkRole:admin');
-    Route::get('/admin/user', [HomeController::class, 'user'])->name('admin.user')->middleware('checkRole:admin');
+
+
+    Route::group(['prefix' => 'admin', 'middleware' => 'checkRole:admin'], function () {
+        Route::get('/', [HomeController::class, 'admin'])->name('admin');
+        Route::get('/posts', [HomeController::class, 'post'])->name('admin.post');
+        Route::get('/users', [HomeController::class, 'user'])->name('admin.user');
+        Route::get('/categories', [HomeController::class, 'category'])->name('admin.category');
+        Route::get('/tags', [HomeController::class, 'tag'])->name('admin.tag');
+    });
 });
 
 Route::controller(PageController::class)->group(function () {

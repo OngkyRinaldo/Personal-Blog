@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -49,7 +51,7 @@ class HomeController extends Controller
     public function post()
     {
         $posts = Post::with('category', 'post_author')->get();
-        return view('cms.admin.post', compact('posts'));
+        return view('cms.admin.posts', compact('posts'));
     }
 
     public function user()
@@ -57,5 +59,22 @@ class HomeController extends Controller
         $users = User::all();
 
         return view('cms.admin.users', compact('users'));
+    }
+
+    public function category()
+    {
+        $categories = Category::latest()
+
+        ->get();
+
+        return view('cms.admin.categories', compact('categories'));
+    }
+
+    public function tag()
+    {
+        $tags = Tag::latest()
+        ->get();
+
+        return view('cms.admin.tags', compact('tags'));
     }
 }

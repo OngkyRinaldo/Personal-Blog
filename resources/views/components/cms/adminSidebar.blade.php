@@ -8,24 +8,6 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('category.index') }}">
-                    <i class="fa-solid fa-layer-group"></i>
-                    Category
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('post.index') }}">
-                    <i class="fa-solid fa-file"></i>
-                    Post
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('tag.index') }}">
-                    <i class="fa-solid fa-tags"></i>
-                    Tag
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin') }}">
                     <i class="fa-solid fa-tags"></i>
                     Admin

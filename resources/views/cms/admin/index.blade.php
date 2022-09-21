@@ -21,15 +21,26 @@ Admin - Dashboard
 
             <div class="row">
 
-                <div class="col-md-6">
+                <div class="col-md-3">
 
                     <a class="btn btn-info d-block" href="{{ route('admin.user') }}" role="button">User List</a>
 
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-3">
 
-                    <a class="btn btn-warning d-block" href="{{ route('admin.post') }}" role="button">Manage posts</a>
+                    <a class="btn btn-warning d-block" href="{{ route('admin.post') }}" role="button">Manage Posts</a>
+
+                </div>
+                <div class="col-md-3">
+
+                    <a class="btn btn-info d-block" href="{{ route('admin.category') }}" role="button">Manage
+                        Categories</a>
+
+                </div>
+                <div class="col-md-3">
+
+                    <a class="btn btn-success d-block" href="{{ route('admin.tag') }}" role="button">Manage Tags</a>
 
                 </div>
 

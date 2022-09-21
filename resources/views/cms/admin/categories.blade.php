@@ -1,4 +1,4 @@
-@extends('layouts.cms.template')
+@extends('layouts.cms.adminTemplate')
 
 @section('title')
 Category
@@ -56,6 +56,19 @@ Category
                     <td>
                         <a class="btn btn-warning" href="{{ route('category.edit', $category->slug) }}"
                             role="button">Edit</a>
+
+                        <a class="btn btn-danger" href="#" role="button" onclick="event.preventDefault();document.getElementById('form-delete-{{ $category->slug
+                        }}').submit(); ">Delete</a>
+
+                        <form action=" {{ route('category.destroy', $category->slug) }}" method="post"
+                            id="form-delete-{{ $category ->slug }}">
+
+                            @csrf
+
+                            @method('DELETE')
+
+                        </form>
+
                     </td>
 
                 </tr>

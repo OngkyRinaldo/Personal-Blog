@@ -1,4 +1,4 @@
-@extends('layouts.cms.template')
+@extends('layouts.cms.adminTemplate')
 
 @section('title')
 Admin - users
