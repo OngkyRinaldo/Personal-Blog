@@ -13,7 +13,14 @@
 
 ## Login
 
+-admin
+
 Email : admin@example.com
+Password : password
+
+-user
+
+Email : user@example.com
 Password : password
 
 ## Fitur
@@ -23,5 +30,6 @@ Password : password
 -   Manage Post (CRUD)
 -   Manage Category (CRUD)
 -   Manage Tag (CRUD)
+-   Manage User
 
 <p style="text-align:center">Thank You so much for your time !!!</p>
