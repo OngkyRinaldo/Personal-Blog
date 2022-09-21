@@ -23,7 +23,7 @@ Admin - Dashboard
 
                 <div class="col-md-3">
 
-                    <a class="btn btn-info d-block" href="{{ route('admin.user') }}" role="button">User List</a>
+                    <a class="btn btn-primary d-block" href="{{ route('admin.user') }}" role="button">User List</a>
 
                 </div>
 

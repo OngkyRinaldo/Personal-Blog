@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [HomeController::class, 'admin'])->name('admin');
         Route::get('/posts', [HomeController::class, 'post'])->name('admin.post');
         Route::get('/users', [HomeController::class, 'user'])->name('admin.user');
+        Route::delete('/users/{user}', [HomeController::class, 'deleteUser'])->name('admin.deleteUser');
         Route::get('/categories', [HomeController::class, 'category'])->name('admin.category');
         Route::get('/tags', [HomeController::class, 'tag'])->name('admin.tag');
     });

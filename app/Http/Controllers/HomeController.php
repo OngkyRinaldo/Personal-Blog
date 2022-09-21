@@ -61,6 +61,14 @@ class HomeController extends Controller
         return view('cms.admin.users', compact('users'));
     }
 
+    public function deleteUser(User $user)
+    {
+        $user->delete();
+
+        return redirect()->back()
+            ->with('success', 'user has been deleted');
+    }
+
     public function category()
     {
         $categories = Category::latest()

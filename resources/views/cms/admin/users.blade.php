@@ -8,6 +8,16 @@ Admin - users
 
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
+    @if (session('success'))
+
+    <div class="alert alert-success my-3 text-center" role="alert">
+
+        {{ session('success') }}
+
+    </div>
+
+    @endif
+
     <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 
@@ -31,6 +41,7 @@ Admin - users
                                     <th scope="col">Role</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Time</th>
+                                    <th scope="col">Action</th>
 
                                 </tr>
 
@@ -46,6 +57,19 @@ Admin - users
                                     <td>{{ $user->role }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->created_at->diffForHumans() }}</td>
+                                    <td>
+                                        <a class="btn btn-danger" href="#" role="button" onclick="event.preventDefault();document.getElementById('form-delete-{{ $user
+                                    }}').submit(); ">Delete</a>
+
+                                        <form action=" {{ route('admin.deleteUser', $user) }}" method="post"
+                                            id="form-delete-{{ $user }}">
+
+                                            @csrf
+
+                                            @method('DELETE')
+
+                                        </form>
+                                    </td>
 
                                 </tr>
 
