@@ -13,12 +13,12 @@
 
 ## Login
 
--admin
+-   admin
 
 Email : admin@example.com
 Password : password
 
--user
+-   user
 
 Email : user@example.com
 Password : password
