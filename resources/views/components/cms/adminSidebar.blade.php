@@ -25,7 +25,12 @@
                     Tag
                 </a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin') }}">
+                    <i class="fa-solid fa-tags"></i>
+                    Admin
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

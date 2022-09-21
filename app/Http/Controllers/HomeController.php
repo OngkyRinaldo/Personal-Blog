@@ -24,14 +24,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index(User $user)
     {
         $user = Auth::user()
         ->username;
-
         $posts = Post::with('category', 'post_author')->get();
 
-        return view('cms.index', compact('user', 'posts'));
+        $userRole = Auth::user()->role;
+
+        if ($userRole == 'admin') {
+            return view('cms.admin.index', compact('user', 'posts'));
+        } else {
+            return view('cms.index', compact('user', 'posts'));
+        }
     }
 
     public function admin()
