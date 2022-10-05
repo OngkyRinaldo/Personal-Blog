@@ -21,7 +21,7 @@ Post - Create
 
                 <form method="post" action="{{ route('post.store') }}" enctype="multipart/form-data">
                     @csrf
-                   <div class="mx-3 my-3  fw-bold">
+                   <div class="mx-3 my-3 fw-bold">
 
                         <label for="title" class="form-label  ">Title</label>
 
@@ -36,7 +36,7 @@ Post - Create
 
                     </div>
 
-                    <div class="mx-3 my-3  fw-bold">
+                    <div class="mx-3 my-3 fw-bold">
 
                         <label for="category" class="form-label">Category</label>
 
@@ -52,9 +52,16 @@ Post - Create
 
                         </select>
 
+
+                        @error('category')
+
+                        <span class="text-danger">{{ $message }}</span>
+
+                        @enderror
+
                     </div>
 
-                    <div class="mx-3 my-3  fw-bold">
+                    <div class="mx-3 my-3 fw-bold">
 
                         <label for="content" class="form-label fw-bold">Content</label>
 
@@ -92,7 +99,7 @@ Post - Create
 
                     </div>
 
-                    <div class="mx-3 my-3  fw-bold">
+                    <div class="mx-3 my-3 fw-bold">
 
                         <label for="images" class="form-label">Images</label>
 

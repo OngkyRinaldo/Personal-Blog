@@ -24,12 +24,12 @@ Post - Edit
 
                 @method('PATCH')
 
-                <div class="mx-3 my-3 fs-3 fw-bold">
+                <div class="mx-3 my-3 fw-bold">
 
                     <label for="title" class="form-label  ">Title</label>
 
                     <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
-                        placeholder="Enter title" name="title" required value="{{ old('title') ?? $post->title }}">
+                        placeholder="Enter title" name="title" value="{{ old('title') ?? $post->title }}">
 
                     @error('title')
 
@@ -40,7 +40,7 @@ Post - Edit
                     @enderror
 
                 </div>
-                <div class="mx-3 my-3 fs-3 fw-bold">
+                 <div class="mx-3 my-3 fw-bold">
 
                     <label for="category" class="form-label">Category</label>
 
@@ -56,11 +56,17 @@ Post - Edit
 
                     </select>
 
+                    @error('category')
+
+                        <span class="text-danger">{{ $message }}</span>
+
+                        @enderror
+
                 </div>
 
-                <div class="mx-3 my-3  fw-bold">
+                <div class="mx-3 my-3 fw-bold">
 
-                    <label for="content" class="form-label fs-3">Content</label>
+                    <label for="content" class="form-label fw-bold">Content</label>
 
                     <input type="hidden" id="content" name="content">
 
@@ -68,7 +74,7 @@ Post - Edit
 
                 </div>
 
-                <div class="mx-3 my-3 fw-bold">
+                 <div class="mx-3 my-3 fw-bold">
 
                     <label for="tag" class="form-label fw-bold">Tag</label>
 
@@ -91,7 +97,7 @@ Post - Edit
 
                 </div>
 
-                <div class="mx-3 my-3 fw-bold">
+                 <div class="mx-3 my-3 fw-bold">
 
                     <label for="images" class="form-label">images</label>
 

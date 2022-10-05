@@ -32,6 +32,7 @@ Post
                     <th scope="col">Title</th>
                     <th scope="col">Category</th>
                     <th scope="col">Author</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Time</th>
                     <th scope="col">Action</th>
 
@@ -50,23 +51,20 @@ Post
                     <td>{{Str::limit($post->title, 46) }}</td>
                     <td>{{ $post->category->title }}</td>
                     <td>{{ $post->post_author->username }}</td>
+                    <td><img src="{{ asset('images/post/' . $post->image) }}" alt="{{Str::limit($post->title, 10) }}"
+                            width="75px">
+                    </td>
                     <td>{{ $post->created_at->diffForHumans() }}</td>
 
                     <td>
-                        <a class="btn btn-info" href="{{ route('post.show', $post->slug) }}" role="button">Show</a>
-
-                        <a class="btn btn-warning" href="{{ route('post.edit', $post->slug) }}" role="button">Edit</a>
-
-                        <a class="btn btn-danger" href="#" role="button" onclick="event.preventDefault();document.getElementById('form-delete-{{ $post->slug
-                        }}').submit();">Delete</a>
-
-                        <form action="{{ route('post.destroy', $post->slug) }}" method="post"
-                            id="form-delete-{{ $post ->slug }}">
-
+                        <form onsubmit="return confirm('Are you sure delete this post ?');"
+                            action="{{ route('post.destroy', $post) }}" method="POST">
+                            <a class="btn btn-sm btn-info" href="{{ route('post.show', $post->slug) }}"
+                                role="button">SHOW</a>
+                            <a href="{{ route('post.edit', $post) }}" class="btn btn-sm btn-warning">EDIT</a>
                             @csrf
-
                             @method('DELETE')
-
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                         </form>
 
                     </td>

@@ -19,7 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('category', 'post_author')->get();
+        $posts = Post::with('category', 'post_author')->latest()->get();
 
         return view('cms.pages.post.index', compact('posts'));
     }
@@ -68,7 +68,7 @@ class PostController extends Controller
 
         $post = Post::create(
             [
-            'title' => $request->title,
+            'title' => Str::title($request->title),
             'slug' => Str::slug($request->title),
             'category_id' => $request->category,
             'descriptions' => Str::limit(strip_tags($request->content, 100)),
@@ -81,7 +81,7 @@ class PostController extends Controller
         $post->tags()->sync($request->tags);
 
         return redirect()->route('post.index')
-            ->with('success', 'post has been created');
+            ->with('success', 'Post has been created successfully');
     }
 
     /**
@@ -126,11 +126,11 @@ class PostController extends Controller
     {
         $request->validate([
 
-            'title' => 'required|min:38',
-            'category' =>'required',
-            'content' => 'required|string',
-            'tags' => 'required',
-            'image' => 'required|image|mimes:jpg,png|max:1024'
+        'title' => 'required|min:38',
+         'category' =>'required',
+         'content' =>'required',
+         'tags' =>'required',
+         'image' => 'required|image|mimes:jpg,png|max:1024'
         ]);
 
         if ($request->hasFile('image')) {
@@ -145,7 +145,7 @@ class PostController extends Controller
         }
 
         $post -> update([
-            'title' => $request->title,
+            'title' => Str::title($request->title),
             'slug' => Str::slug($request->title),
             'category_id' => $request->category,
             'content' => $request->content,

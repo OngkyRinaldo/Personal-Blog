@@ -54,8 +54,6 @@ Category
                     <td>{{ $category->created_at->diffForHumans() }}</td>
 
                     <td>
-                        <a class="btn btn-warning" href="{{ route('category.edit', $category->slug) }}"
-                            role="button">Edit</a>
 
                         <a class="btn btn-danger" href="#" role="button" onclick="event.preventDefault();document.getElementById('form-delete-{{ $category->slug
                         }}').submit(); ">Delete</a>
