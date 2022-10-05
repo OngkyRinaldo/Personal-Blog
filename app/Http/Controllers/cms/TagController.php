@@ -109,7 +109,7 @@ class TagController extends Controller
     {
         $tag->delete();
 
-        return redirect()->route('tag.index')
+        return redirect()->route('admin.tag')
             ->with('success', 'Tag has been delated');
     }
 }

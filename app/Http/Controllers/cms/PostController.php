@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -173,7 +174,14 @@ class PostController extends Controller
 
         $post->delete();
 
-        return redirect()->route('post.index')
+        $userRole = Auth::user()->role;
+
+        if ($userRole == 'user') {
+            return redirect()->route('post.index')
             ->with('success', 'Post has been deleted');
+        } else {
+            return redirect()->route('admin.post')
+            ->with('success', 'Post has been deleted');
+        }
     }
 }

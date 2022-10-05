@@ -23,6 +23,8 @@ Category - Create
 
                 <form action="{{ route('category.store') }}" method="POST">
 
+                    @csrf
+
                     <div class="mx-3 my-3 fs-3 fw-bold">
 
                         <label for="title">Title</label>

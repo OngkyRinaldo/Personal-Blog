@@ -60,18 +60,12 @@ Tag
 
                     <td>
 
-                        <a class="btn btn-warning" href="{{ route('tag.edit', $tag->slug) }}" role="button">Edit</a>
 
-                        <a class="btn btn-danger" href="#" role="button" onclick="event.preventDefault();document.getElementById('form-delete-{{ $tag->slug
-                            }}').submit(); ">Delete</a>
-
-                        <form action=" {{ route('tag.destroy', $tag->slug) }}" method="post"
-                            id="form-delete-{{ $tag ->slug }}">
-
+                        <form onsubmit="return confirm('Are you sure delete this tag ?');"
+                            action="{{ route('tag.destroy', $tag) }}" method="POST">
                             @csrf
-
                             @method('DELETE')
-
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                         </form>
 
                     </td>

@@ -54,17 +54,11 @@ Category
                     <td>{{ $category->created_at->diffForHumans() }}</td>
 
                     <td>
-
-                        <a class="btn btn-danger" href="#" role="button" onclick="event.preventDefault();document.getElementById('form-delete-{{ $category->slug
-                        }}').submit(); ">Delete</a>
-
-                        <form action=" {{ route('category.destroy', $category->slug) }}" method="post"
-                            id="form-delete-{{ $category ->slug }}">
-
+                        <form onsubmit="return confirm('Are you sure delete this category ?');"
+                            action="{{ route('category.destroy', $category) }}" method="POST">
                             @csrf
-
                             @method('DELETE')
-
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                         </form>
 
                     </td>

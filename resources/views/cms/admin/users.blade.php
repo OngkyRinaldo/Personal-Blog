@@ -58,17 +58,14 @@ Admin - users
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->created_at->diffForHumans() }}</td>
                                     <td>
-                                        <a class="btn btn-danger" href="#" role="button" onclick="event.preventDefault();document.getElementById('form-delete-{{ $user
-                                    }}').submit(); ">Delete</a>
 
-                                        <form action=" {{ route('admin.deleteUser', $user) }}" method="post"
-                                            id="form-delete-{{ $user }}">
-
+                                        <form onsubmit="return confirm('Are you sure delete this tag ?');"
+                                            action="{{ route('admin.deleteUser', $user) }}" method="POST">
                                             @csrf
-
                                             @method('DELETE')
-
+                                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                         </form>
+
                                     </td>
 
                                 </tr>

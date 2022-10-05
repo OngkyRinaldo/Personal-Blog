@@ -52,22 +52,11 @@ Admin - posts
 
                                     <td>
 
-                                        <a class="btn btn-info" href="{{ route('post.show', $post->slug) }}"
-                                            role="button">Show</a>
-
-                                        <a class="btn btn-warning" href="{{ route('post.edit', $post->slug) }}"
-                                            role="button">Edit</a>
-
-                                        <a class="btn btn-danger" href="#" role="button" onclick="event.preventDefault();document.getElementById('form-delete-{{ $post->slug
-                                        }}').submit();">Delete</a>
-
-                                        <form action="{{ route('post.destroy', $post->slug) }}" method="post"
-                                            id="form-delete-{{ $post ->slug }}">
-
+                                        <form onsubmit="return confirm('Are you sure delete this post ?');"
+                                            action="{{ route('post.destroy', $post) }}" method="POST">
                                             @csrf
-
                                             @method('DELETE')
-
+                                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                         </form>
 
                                     </td>
