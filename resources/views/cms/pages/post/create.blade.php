@@ -21,26 +21,22 @@ Post - Create
 
                 <form method="post" action="{{ route('post.store') }}" enctype="multipart/form-data">
                     @csrf
-                    <div class="mx-3 my-3 fs-3 fw-bold">
+                   <div class="mx-3 my-3  fw-bold">
 
                         <label for="title" class="form-label  ">Title</label>
 
                         <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
-                            placeholder="Enter title" name="title" required value="{{ old('title') }}">
+                            placeholder="Enter title" name="title" value="{{ old('title') }}">
 
-                        @error('title')
+                         @error('title')
 
-                        <div class="text-danger">
-
-                            {{ $message }}
-
-                        </div>
+                        <span class="text-danger">{{ $message }}</span>
 
                         @enderror
 
                     </div>
 
-                    <div class="mx-3 my-3 fs-3 fw-bold">
+                    <div class="mx-3 my-3  fw-bold">
 
                         <label for="category" class="form-label">Category</label>
 
@@ -60,7 +56,7 @@ Post - Create
 
                     <div class="mx-3 my-3  fw-bold">
 
-                        <label for="content" class="form-label fs-3">Content</label>
+                        <label for="content" class="form-label fw-bold">Content</label>
 
                         <input type="hidden" id="content" name="content" value="{{ old('content') }}">
 

@@ -52,7 +52,7 @@ class PostController extends Controller
          'category' =>'required',
          'content' =>'required',
          'tags' =>'required',
-         'image' => 'nullable|image|mimes:jpg,png|max:1024'
+         'image' => 'required|image|mimes:jpg,png|max:1024'
 
         ]);
 
@@ -130,7 +130,7 @@ class PostController extends Controller
             'category' =>'required',
             'content' => 'required|string',
             'tags' => 'required',
-            'image' => 'nullable|image|mimes:jpg,png|max:1024'
+            'image' => 'required|image|mimes:jpg,png|max:1024'
         ]);
 
         if ($request->hasFile('image')) {
