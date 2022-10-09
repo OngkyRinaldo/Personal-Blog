@@ -61,7 +61,7 @@
     <div class="container-fluid">
         <div class="row">
             {{-- sidebar --}}
-            <x-cms.adminSidebar />
+            <x-cms.sidebar />
             {{-- end sidebar --}}
 
             {{-- main --}}

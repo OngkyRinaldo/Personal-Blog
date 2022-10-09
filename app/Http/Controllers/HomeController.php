@@ -44,9 +44,10 @@ class HomeController extends Controller
 
     public function admin()
     {
+        $posts = Post::with('category', 'post_author')->get();
         $user = Auth::user()
         ->username;
-        return view('cms.admin.index', compact('user'));
+        return view('cms.admin.index', compact('user', 'posts'));
     }
     public function post()
     {
